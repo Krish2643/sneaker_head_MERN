@@ -39,7 +39,7 @@ const Cart = () => {
                   <tr key={item.id} >
                     <td>
                        <div className="cart-info">
-                          <img src={item.img} alt="shoe image" />
+                          <img src={item.img} alt="shoe-img" />
                        <div>
                            <p>{item.title}</p>
                            <small>Price: $ {item.price}</small><br/>

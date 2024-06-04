@@ -3,7 +3,7 @@ import "./Shoes.css";
 import SideBar from "../SideBar/SideBar";
 import Card from "../Card/Card";
 
-import Skeleton from 'react-loading-skeleton'
+// import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import CardSkeleton from "../CardSkeleton";
 
@@ -13,7 +13,7 @@ const Shoes = () => {
      const [loading, setLoading] = useState(true);
 
      const loadData = async()=>{
-   const response = await fetch("http://localhost:8000/api/product/shoesData",
+   const response = await fetch("https://sneaker-head-mern-backend.onrender.com/api/product/shoesData",
        {
         method: 'POST',
         headers: {
@@ -22,13 +22,17 @@ const Shoes = () => {
        } );
          const data = await response.json();
          setShoes(data);
+         if(response.status === 200){
+          setLoading(false);
+         }
      }
+
 
      useEffect(()=>{
          loadData();
-         setTimeout(()=>{
-          setLoading(false);
-         }, 2000);
+        //  setTimeout(()=>{
+        //   setLoading(false);
+        //  }, 2000);
      },[])
 
     console.log("loding", loading);
