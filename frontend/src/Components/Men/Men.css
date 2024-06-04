@@ -1,0 +1,21 @@
+.men-container{
+    color: rgba(247, 240, 240, 0.783);
+    display: flex;
+}
+.men-product{
+    margin-left: 18rem;
+    display: flex;
+    flex-wrap: wrap;
+     margin-top: 2rem;
+}
+
+@media screen and (max-width: 750px){
+    .men-product{
+        margin-left: 12rem;
+    }
+}
+@media screen and (max-width: 450px){
+    .men-product{
+        margin-left: 10rem;
+    }
+}
