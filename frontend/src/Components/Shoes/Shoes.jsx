@@ -2,6 +2,7 @@ import React, { useEffect, useState} from "react";
 import "./Shoes.css";
 import SideBar from "../SideBar/SideBar";
 import Card from "../Card/Card";
+import products from '../../assets/data'
 
 // import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -12,27 +13,31 @@ const Shoes = () => {
      const  [shoes, setShoes] = useState([]);
      const [loading, setLoading] = useState(true);
 
-     const loadData = async()=>{
-   const response = await fetch("https://sneaker-head-mern-backend.onrender.com/api/product/shoesData",
-       {
-        method: 'POST',
-        headers: {
-         'Content-Type': 'application/json'
-             }
-       } );
-         const data = await response.json();
-         setShoes(data);
-         if(response.status === 200){
-          setLoading(false);
-         }
-     }
+  //    const loadData = async()=>{
+  //  const response = await fetch("https://sneaker-head-mern-backend.onrender.com/api/product/shoesData",
+  //      {
+  //       method: 'POST',
+  //       headers: {
+  //        'Content-Type': 'application/json'
+  //            }
+  //      } );
+  //        const data = await response.json();
+  //        setShoes(data);
+  //        if(response.status === 200){
+  //         setLoading(false);
+  //        }
+  //    }
+
+   const loadData = ()=>{
+      setShoes(products);
+   }
 
 
      useEffect(()=>{
          loadData();
-        //  setTimeout(()=>{
-        //   setLoading(false);
-        //  }, 2000);
+         setTimeout(()=>{
+          setLoading(false);
+         }, 2000);
      },[])
 
     console.log("loding", loading);
